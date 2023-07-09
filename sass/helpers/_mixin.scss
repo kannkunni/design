@@ -1,0 +1,342 @@
+@mixin clearfix{
+    // *zoom:1;
+    &:after{
+        clear:both;
+        content:"";
+        display:table;
+    }
+}
+@mixin centering($w, $h){
+    position: fixed;
+    width: $w;
+    height: $h;
+    top:50%;
+    left:50%;
+    margin-top: - $h /2;
+    margin-left: -$w /2;
+}
+@mixin mask($op,$z){
+  @include opacity($op);
+  width:100%;
+  min-height:110%;
+  position: fixed;
+  background:#000;
+  z-index:$z;
+  display: none;
+}
+
+//basic setting
+@mixin wh($w, $h) {
+    width: $w;
+    height: $h;
+}
+@mixin wh-auto-m($w, $h) {
+    width: $w;
+    height: $h;
+    margin: 0 auto;
+    position: relative;
+}
+@mixin wh--a($w, $h) {
+    width: $w;
+    height: $h;
+    display: block;
+}
+@mixin wh--100a{
+  a{
+      @include wh--a(100%, 100%);
+    }
+}
+
+//images
+@mixin maru-pic($wh,$r){
+  @include wh($wh,$wh);
+  @include radius($r);
+  overflow:hidden;
+  img {
+      width: 100%;
+      height: auto;
+  }
+}
+@mixin img-mid{
+  overflow: hidden;
+  // img{
+  //     width: 100%;
+  //     height: auto;
+  //     top:50%;
+  //     left: 50%;
+  //     position: relative; 
+  //     transform: translate(-50%, -50%);
+  //   }
+  img{
+    max-height: 100%;  
+    max-width: 100%; 
+    width: auto;
+    height: auto;
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto;
+  }
+}
+@mixin pic_16-9{
+    height: 0;
+    padding-bottom: 56.25%;
+    box-sizing:border-box;
+    overflow: hidden;
+    position:relative;
+    img{
+      position:absolute;
+      top:0;
+      bottom:0;
+      right:0;
+      left:0;
+      max-width:100%;
+      margin:auto;
+    }
+
+}
+
+//text overflow
+@mixin text-overflow($width) {
+    width: $width;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+@mixin line-clamp($n){
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $n;
+  overflow: hidden;
+}
+
+//table
+@mixin table{
+  border-collapse: separate;
+  border-spacing: 1px;
+  width: 100%;
+}
+
+//ol color
+@mixin ol-Color($bgc, $color, $radius, $width, $left){
+  >li{
+    counter-increment: li;
+    position: relative;
+    &:before{
+      position: absolute;
+      content: counter(li); 
+      font-family: 'Cantata One', serif;
+      font-weight: bold;
+      background-color: $bgc;
+      color:$color;
+      text-align: center;
+      @include radius($radius);
+      content: counter(li);
+      width: $width;
+      left:$left;
+    }
+  }
+}
+
+
+//animation transition
+@mixin ts {
+    -webkit-transition: all .35s ease-in;
+    -moz-transition: all .35s ease-in;
+    -ms-transition: all .35s ease-in;
+    transition: all .35s ease-in;
+}
+@mixin transition($duration, $ease) {
+    -webkit-transition: all $duration $ease;
+    -moz-transition: all $duration $ease;
+    -ms-transition: all $duration $ease;
+    transition: all $duration $ease;
+}
+@mixin animate($name, $duration, $delay, $times, $ease){
+    animation: $name $time $duration $times $ease;
+    -webkit-animation:  $name $duration $delay $times $ease;
+}
+
+
+
+
+//linear-gradient
+@mixin linear-gradient($from, $to){
+	background: $to;
+	background-image: linear-gradient($from, $to);/* W3C */
+	background-image: -webkit-linear-gradient($from, $to);/* Chrome10+,Safari5.1+ */
+	background-image: -moz-linear-gradirnt($from,$to);/* FF3.6+ */
+	background-image: -ms-linear-gradient($from, $to);/* IE10+ */
+	background-image: -o-linear-gradient($from, $to); /* Opera 11.10+ */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, $from), color-stop(1, $to));/* Chrome,Safari4+ */	
+}
+
+//color gradient opacity 
+@mixin colorfx($color,$size) {
+    @for $i from 1 through $size {
+        &:nth-child(#{$i}){
+            background: rgba($color, 1/($i*0.6));
+            &:hover {
+                background: darken(rgba($color, 1), 1/($i*0.1));
+            }
+        }
+    }
+}
+
+
+
+
+
+//Rwd
+@mixin rwd($point){
+     @if $point == hover{
+        @media only screen and (min-width: 1281px) { 
+          @content ;
+        }
+    }
+    @if $point == max{
+        @media only screen and (min-width: 1921px) { 
+          @content ;
+        }
+    }
+    @if $point == stacie{
+        @media screen and (min-resolution: 120dpi) and (min-width: 1280px) { 
+          @content ;
+        }
+    }
+    @if $point == hd{
+        @media only screen and (max-width: 1280px) { 
+          @content ;
+        }
+    }
+    @else if $point == desktop{
+        @media only screen and (max-width: 1100px) { 
+          @content ;
+        }
+    }
+    @else if $point == tablet{
+        @media only screen and (max-width: 768px) { 
+          @content ;
+        }
+    }
+    @else if $point == tablet_s{
+        @media only screen and (max-width: 480px) { 
+          @content ;
+        }
+    }
+    @else if $point == mobile_l{
+        @media only screen and (max-width: 414px) { 
+          @content ;
+        }
+    }
+    @else if $point == mobile{
+        @media only screen and (max-width: 375px) { 
+          @content ;
+        }
+    }
+    @else if $point == mobile_s{
+        @media only screen and (max-width: 320px) { 
+          @content ;
+        }
+    }
+}
+
+// hack
+@mixin hack($ver) {
+    // * IE6-7 hack
+    @if $ver == "ie6-7" {
+        @media screen\9 {
+            @content;
+        }
+    }
+    // * IE8 hack only
+    @else if $ver == "ie8" {
+        @media \0screen {
+            @content;
+        }
+    }
+    // * IE6-8 hack
+    @else if $ver == "ie6-8" {
+        @media \0screen\,screen\9 {
+            @content;
+        }
+    }
+    // * IE9-11 hack(add propary \9)
+    @else if $ver == "ie9up" {
+        @media all and (min-width:0\0) {
+            @content;
+        }
+    }
+    // * IE10 up hack
+    @else if $ver == "ie10up" {
+        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){
+            @content;
+        }
+    }
+    // * IE11 hack(add selector *:-ms-backdrop)
+    @else if $ver == "ie11" {
+        @media all and (-ms-high-contrast:none) {
+          #{'_:-ms-fullscreen, :root '},
+          &{
+           @content;
+          }
+        }
+    }
+    @else if $ver == "edge" {
+       _:-ms-lang(x),
+       &{
+         @content;
+       }
+    }
+    //Chrome hack 
+    @else if $ver == "chrome" {
+      @media screen and (-webkit-min-device-pixel-ratio:0) {
+        @content;
+      }
+    }
+    //Firefox hack only
+    @else if $ver == "ff" {
+      @-moz-document url-prefix(){
+        @content;
+      }
+    }
+    //Safari hack 
+    @else if $ver == "safari" {
+      @supports (overflow:-webkit-marquee) and (justify-content:inherit){
+        & {
+          @content;
+        }
+      }
+    }
+    //iOS hack
+    @else if $ver == "ios" {
+      @supports (-webkit-text-size-adjust:none) and (not (-ms-accelerator:true)) and (not (-moz-appearance:none)){
+        & { @content; }
+      }
+    }
+}
+
+
+
+
+
+
+//px -> rem
+//輸入寬可得到寬的rem
+@function remWidth($width) {
+    $psdWidth: 960; // 10rem
+    $newWidth: $width / $psdWidth; //960下該有的新高度
+    @return $newWidth / 1px * 10rem;
+}
+
+@function rem($px) {
+  $browser-default-font-size:10;
+    @return $px / $browser-default-font-size* 1rem;
+    // @return $px / 5;
+}
+// html{
+//   font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/
+  
+// }

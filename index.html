@@ -15,7 +15,6 @@
 </head>
 
 <body>
-	<div id="mouse"></div>
     <div class="wrapper">
 		<nav class="nav" id="js-nav">
 			<div class="nav-ham" id="js-ham"></div>
@@ -65,13 +64,11 @@
                     	as a professional <span>Web designer</span>.
 					</h2>
 					<p>
-						您好，我是<span><img class="svgtext svgtext_tw" src="img/text/name_tw.svg" alt=""></span>，已有十年以上的設計資歷。
+						您好，我是<span>君怡</span>，是一位擁有十多年資歷的設計師。
 						一直以來對"美感"的執著，加上雙子座熱愛創意與跳躍思考的本質，就這樣默默地踏進了設計的領域。<br/>
-						我擅長各式視覺風格、網頁切版與動態特效，近年也接觸 UI 設計與 VueJS 切版。<br/>
-						然而在其中一間公司，因職務必須大量編寫 javascript 和 jQuery，養成更好的邏輯思維和系統的規劃。<br/><br/>
-						一直以來，秉持著不斷學習、理性客觀與自我要求等原則面對人事物，因此同事與主管予以我的評價多為「做事細心有條理、具責任感」。<br/><br/>
-						對於未來，尚不打算因年齡與資歷漸長而選擇舒適，只要自己的專業還是最大的武器，仍願意接受挑戰，以及隨時讓技能創新！
-						
+						我擅長各式視覺風格、網頁切版與動態特效，最熟悉撰寫方式HTML+SCSS+jQuery。另外，近年也稍加接觸 UI 設計與 VueJS 運用。<br/><br/>
+						一直以來，秉持著不斷學習、理性客觀與自我要求等原則，來面對人事物，因此同事與主管予以我的評價多為「做事細心有條理、具責任感」。<br/><br/>
+						對於未來，尚不打算因年齡與資歷漸長而選擇舒適，只要自己的專業還是最大的武器，仍願意接受挑戰，開放各種可能性發展！
 					</p>
 					<ul>
 						<li class="tag">#廣電系畢</li>
@@ -87,7 +84,7 @@
 			<div class="section-wrap">
 				<div class="skills-description">
 					<h3>Skills</h3>
-					<h2>I perficient in <br><span>vision design</span> and <span>web layout</span>, <br>
+					<h2>I perficient in <br><span>visual design</span> and <span>web layout</span>, <br>
 						and be able to complete RWD web page<br> independently.
 					</h2>
 					<ul>
@@ -111,12 +108,12 @@
 						</li>
 						<li>
 							<span class="tag2">介面設計</span>
-							Adobe XD、Sketch、Figma
+							Figma、Sketch、Adobe XD
 						</li>
 						<li>
 							<span class="tag2">網頁技術</span>
-							HTML、SCSS、jQuery、Javascript、<br/>
-							Tailwind.CSS、Vue.js
+							HTML、SCSS、jQuery、Javascript、Vue.js、<br/>
+							Tailwind CSS、Bootstrap ... and more
 						</li>
 						<li>
 							<span class="tag2">其他</span>
@@ -146,7 +143,7 @@
 								1. Banner / Icon 等圖形設計 <br>
 								2. 報表後台設計與切版 <br>
 								3. HTML網頁動態特效<br>
-								4. 協助企劃發想<br>
+								4. 資訊文件整合<br>
 							</div>
 						</div>
 					</div>
@@ -247,21 +244,46 @@
 				</div>
 			</div>
 		</section>
-		<section class="portfolio" id="portfolio">
+		<section class="portfolio" style="padding-bottom: 20px;" id="portfolio">
 			<div class="section-wrap">
 				<h3>Portfolio</h3>
-				<span>部分作品因目前不便放在線上，如有榮幸參與面談，屆時會展示</span>
-				<ul class="portfolio-menu" id="js-portfolioMenu">
-					<li class="is--active"><a>All</a></li>
-					<li><a>Web</a></li>
-					<li><a>Banner</a</li>
-					<li><a>Others</a></li>
-				</ul>
-				<div class="portfolio-content" id="js-portfolioCont"></div>
-				<div class="portfolio-note">.. and more</div>
+				<span>在十多年的設計經驗裡，雖然以遊戲類型的作品為大宗，不過亦擅長美式簡約風、日系塗鴉手繪風，以及Vlog型態之時尚/文青等表現。<br>
+				有部份作品目前不方便放在線上，如有機會將於現場展示，謝謝。</span>	
 			</div>
 		</section>
-		
+		<div class="portfolio-category">
+			<div class="portfolio-category_block" id="cate-web">
+				<div class="portfolio-category-title">
+					<h2>WEB</h2>
+				</div>
+			</div>
+			<div class="portfolio-category_block" id="cate-visual" >
+				<div class="portfolio-category-title">
+					<h2>VISUAL</h2>
+				</div>
+			</div>
+			<div class="portfolio-category_block" id="cate-ui">
+				<div class="portfolio-category-title">
+					<h2>UI</h2>
+				</div>
+			</div>
+			<!-- <div class="portfolio-category_block" id="cate-infographic">
+				<div class="portfolio-category-title">
+					<h2>INFOGRAPHIC</h2>
+				</div>
+			</div> -->
+		</div>
+		<div class="portfolio-showcase">
+			<div class="portfolio-showcase-close" id="js-portfolioClose">
+				<span></span>
+				<span></span>
+			</div>
+			<h3></h3>
+			<div class="portfolio-content" id="js-cate-web"></div>
+			<div class="portfolio-content" id="js-cate-visual"></div>
+			<!-- <div class="portfolio-content" id="js-cate-ui"></div>
+			<div class="portfolio-content" id="js-cate-infographic"></div> -->
+		</div>
 		<footer class="footer">
 			<div class="footer-author">
 				© 2023
