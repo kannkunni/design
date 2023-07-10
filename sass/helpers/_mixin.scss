@@ -30,43 +30,13 @@
     width: $w;
     height: $h;
 }
-@mixin wh-auto-m($w, $h) {
-    width: $w;
-    height: $h;
-    margin: 0 auto;
-    position: relative;
-}
-@mixin wh--a($w, $h) {
-    width: $w;
-    height: $h;
-    display: block;
-}
-@mixin wh--100a{
-  a{
-      @include wh--a(100%, 100%);
-    }
+@mixin tr($space) {
+  top: $space;
+  right: $space;
 }
 
-//images
-@mixin maru-pic($wh,$r){
-  @include wh($wh,$wh);
-  @include radius($r);
-  overflow:hidden;
-  img {
-      width: 100%;
-      height: auto;
-  }
-}
 @mixin img-mid{
   overflow: hidden;
-  // img{
-  //     width: 100%;
-  //     height: auto;
-  //     top:50%;
-  //     left: 50%;
-  //     position: relative; 
-  //     transform: translate(-50%, -50%);
-  //   }
   img{
     max-height: 100%;  
     max-width: 100%; 
