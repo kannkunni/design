@@ -76,7 +76,7 @@ $(function(){
 		`);
 	}
 	//ui
-	for(i = 0 ; i < 1 ;i++) {
+	for(i = 0 ; i < 2 ;i++) {
 		var _count = i + 1;    
 	    $('#js-cate-ui').append(`
 		<div class="portfolio-ui"><img src="img/works/ui0`+ _count +`.jpg" alt=""></div>
