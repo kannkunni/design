@@ -1121,6 +1121,12 @@ section .section-wrap {
     width: 100%;
   }
 }
+@media only screen and (max-width: 480px) {
+  .portfolio-ui {
+    margin-bottom: 24px;
+    border-radius: 12px;
+  }
+}
 
 .footer {
   width: 100%;

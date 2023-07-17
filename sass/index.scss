@@ -954,6 +954,10 @@ section{
 		@include rwd(hd) {
 			width: 100%;
 		}
+		@include rwd(tablet_s){
+			margin-bottom: 24px;
+			border-radius: 12px;
+		}
 	}
 }
 
